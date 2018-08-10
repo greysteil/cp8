@@ -62,6 +62,10 @@ class Payload
     ActiveSupport::StringInquirer.new(data[:action])
   end
 
+  def label
+    Label.new(data[:label][:name])
+  end
+
   def comment
     return unless comment_params
 

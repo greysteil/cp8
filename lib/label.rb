@@ -4,6 +4,8 @@ class Label
     WIP: "5319e7"
   }
 
+  attr_reader :name
+
   def initialize(name)
     @name = name
   end
@@ -22,8 +24,6 @@ class Label
   end
 
   private
-
-    attr_reader :name
 
     def added_to_issue?(issue)
       github.labels_for_issue(issue.repo, issue.number).map(&:name).include?(name.to_s)

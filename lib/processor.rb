@@ -1,6 +1,7 @@
 require "active_support"
 require "configuration"
 require "issue_closer"
+require "issue_delegator"
 require "notifier"
 require "labeler"
 require "project_manager"
@@ -18,7 +19,7 @@ class Processor
   end
 
   def process
-#    return if event_triggered_by_cp8?
+    return if event_triggered_by_cp8?
 
     notify_new_pull_request
     notify_unwip
@@ -84,6 +85,8 @@ class Processor
     def delegate_issue
       if payload.label_added?
         log "Moving issue"
+
+        IssueDelegator.new(label: payload.label, issue: payload.issue).run
       end
     end
 
