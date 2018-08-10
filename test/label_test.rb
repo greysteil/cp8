@@ -12,4 +12,10 @@ class LabelTest < Minitest::Test
 
     assert_equal "elsewhere", label.suffix
   end
+
+  def test_detecting_suffix_with_extra_space
+    label = Label.new("move-to: elsewhere  ")
+
+    assert_equal "elsewhere", label.suffix
+  end
 end

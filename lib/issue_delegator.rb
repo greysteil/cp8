@@ -1,13 +1,13 @@
 class IssueDelegator
-  LABEL_PREFIX="move-to:"
+  LABEL_PREFIX = "move-to"
+
   def initialize(label:, issue:)
     @label = label
     @issue = issue
   end
 
   def run
-    if label.name.start_with?(LABEL_PREFIX)
-
+    if label.prefix == LABEL_PREFIX
     end
   end
 

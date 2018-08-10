@@ -1,10 +1,9 @@
 class Label
+  NAME_DELIMITER = ": "
   COLORS = {
     Icebox: "eb6420",
     WIP: "5319e7"
   }
-
-  attr_reader :name
 
   def initialize(name)
     @name = name
@@ -23,7 +22,17 @@ class Label
     github.remove_label(issue.repo, issue.number, name)
   end
 
+  def prefix
+    name_parts.first
+  end
+
+  def suffix
+    name_parts.last
+  end
+
   private
+
+    attr_reader :name
 
     def added_to_issue?(issue)
       github.labels_for_issue(issue.repo, issue.number).map(&:name).include?(name.to_s)
@@ -41,5 +50,9 @@ class Label
 
     def github
       Cp8.github_client
+    end
+
+    def name_parts
+      name.split(NAME_DELIMITER).map(&:strip)
     end
 end

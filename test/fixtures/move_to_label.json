@@ -46,7 +46,7 @@
     "id": 1,
     "node_id": "ABCD",
     "url": "https://api.github.com/repos/cookpad/cp8/labels/move-to:%20dummy-squad",
-    "name": "move-to: dummy-squad",
+    "name": "move-to: cookpad/dummy-squad",
     "color": "fef2c0",
     "default": false
   },
