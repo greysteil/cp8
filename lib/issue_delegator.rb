@@ -9,6 +9,7 @@ class IssueDelegator
   def run
     if label.prefix == LABEL_PREFIX
       create_copy_of_issue_in_selected_repo
+      close_parent_issue
     end
   end
 
@@ -18,6 +19,10 @@ class IssueDelegator
 
     def create_copy_of_issue_in_selected_repo
       github.create_issue(label.suffix, issue.title, moved_issue_body)
+    end
+
+    def close_parent_issue
+      github.close_issue(issue.repo, issue.number)
     end
 
     def github
