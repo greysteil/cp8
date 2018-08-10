@@ -163,7 +163,7 @@ class ProcessorTest < Minitest::Test
   end
 
   def test_moving_issues_when_labeled
-    github.expects(:create_issue).with("cookpad/dummy-squad", "Issue title", "Issue body").once
+    github.expects(:create_issue).with("cookpad/dummy-squad", "Issue title", "_Moved from https://github.com/balvig/cp-8/issues/2_\n\n---\nIssue body").once
 
     process_payload(:move_to_label)
   end
