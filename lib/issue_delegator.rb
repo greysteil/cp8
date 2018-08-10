@@ -1,13 +1,14 @@
 class IssueDelegator
-  LABEL_PREFIX = "move-to"
-
-  def initialize(label:, issue:)
+  def initialize(label:, issue:, prefix:)
     @label = label
     @issue = issue
+    @prefix = prefix
   end
 
   def run
-    if label.prefix == LABEL_PREFIX
+    return if prefix.blank?
+
+    if label.prefix == prefix
       create_copy_of_issue_in_selected_repo
       close_parent_issue
     end
@@ -15,7 +16,7 @@ class IssueDelegator
 
   private
 
-    attr_reader :label, :issue
+    attr_reader :label, :issue, :prefix
 
     def create_copy_of_issue_in_selected_repo
       github.create_issue(label.suffix, issue.title, moved_issue_body)

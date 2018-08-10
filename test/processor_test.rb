@@ -166,7 +166,7 @@ class ProcessorTest < Minitest::Test
     github.expects(:create_issue).with("cookpad/dummy-squad", "Issue title", "_Moved from https://github.com/balvig/cp-8/issues/2_\n\n---\nIssue body").once
     github.expects(:close_issue).with("balvig/cp-8", 2)
 
-    process_payload(:move_to_label)
+    process_payload(:move_to_label, config: { move_to_prefix: "move-to" } )
   end
 
   private
