@@ -162,6 +162,11 @@ class ProcessorTest < Minitest::Test
     assert_equal ":white_check_mark: <https://github.com/cookpad/cp-8/pull/6561#pullrequestreview-85607834|#6561 was approved> by reviewer _(cc <@submitter>)_", last_notification[:text]
   end
 
+  def test_moving_issues_when_labeled
+    process_payload(:move_to_label)
+
+  end
+
   private
 
     def process_payload(file, config: default_config)
