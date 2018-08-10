@@ -9,7 +9,7 @@
     "html_url": "https://github.com/balvig/cp-8/issues/2",
     "id": 137013866,
     "number": 2,
-    "title": "Issue to be moved title",
+    "title": "Issue title",
     "user": {
       "login": "balvig",
       "id": 104138,
@@ -40,7 +40,7 @@
     "created_at": "2016-02-28T06:28:06Z",
     "updated_at": "2016-02-28T06:28:14Z",
     "closed_at": null,
-    "body": "Issue body text"
+    "body": "Issue body"
   },
   "label": {
     "id": 1,
