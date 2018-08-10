@@ -33,5 +33,5 @@ CP-8 will:
 /payload?config[stale_issue_weeks]=6 # Set stale issue cutoff to 6 weeks
 /payload?config[review_channel]=reviews # Send review requests/updates to specified Slack channel
 /payload?config[project_column_id]=49 # Automatically add new issues to a project column
-/payload?config[move_to_prefix]=move-to # Automatically move issues to other repos when labeled with prefix
+/payload?config[move_to_prefix]=move-to # Move issue to other repo when labeled with prefix, ie `move-to:cookpad/cp8`
 ```
