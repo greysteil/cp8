@@ -85,7 +85,6 @@ class Processor
     def delegate_issue
       if payload.label_added?
         log "Label added, pondering whether to move"
-
         IssueDelegator.new(label: payload.label, issue: payload.issue, prefix: config.move_to_prefix).run
       end
     end
